@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ragnarok/projects/opengl/learnopengl
+CMAKE_SOURCE_DIR = /home/ragnarok/projects/opengl/nbody
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ragnarok/projects/opengl/learnopengl/build
+CMAKE_BINARY_DIR = /home/ragnarok/projects/opengl/nbody/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/shader_class.dir/depend.make
@@ -73,32 +73,32 @@ CMakeFiles/shader_class.dir/codegen:
 .PHONY : CMakeFiles/shader_class.dir/codegen
 
 CMakeFiles/shader_class.dir/src/main.cpp.o: CMakeFiles/shader_class.dir/flags.make
-CMakeFiles/shader_class.dir/src/main.cpp.o: /home/ragnarok/projects/opengl/learnopengl/src/main.cpp
+CMakeFiles/shader_class.dir/src/main.cpp.o: /home/ragnarok/projects/opengl/nbody/src/main.cpp
 CMakeFiles/shader_class.dir/src/main.cpp.o: CMakeFiles/shader_class.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ragnarok/projects/opengl/learnopengl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/shader_class.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/shader_class.dir/src/main.cpp.o -MF CMakeFiles/shader_class.dir/src/main.cpp.o.d -o CMakeFiles/shader_class.dir/src/main.cpp.o -c /home/ragnarok/projects/opengl/learnopengl/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ragnarok/projects/opengl/nbody/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/shader_class.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/shader_class.dir/src/main.cpp.o -MF CMakeFiles/shader_class.dir/src/main.cpp.o.d -o CMakeFiles/shader_class.dir/src/main.cpp.o -c /home/ragnarok/projects/opengl/nbody/src/main.cpp
 
 CMakeFiles/shader_class.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/shader_class.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ragnarok/projects/opengl/learnopengl/src/main.cpp > CMakeFiles/shader_class.dir/src/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ragnarok/projects/opengl/nbody/src/main.cpp > CMakeFiles/shader_class.dir/src/main.cpp.i
 
 CMakeFiles/shader_class.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/shader_class.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ragnarok/projects/opengl/learnopengl/src/main.cpp -o CMakeFiles/shader_class.dir/src/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ragnarok/projects/opengl/nbody/src/main.cpp -o CMakeFiles/shader_class.dir/src/main.cpp.s
 
 CMakeFiles/shader_class.dir/thirdparty/glad/src/glad.c.o: CMakeFiles/shader_class.dir/flags.make
-CMakeFiles/shader_class.dir/thirdparty/glad/src/glad.c.o: /home/ragnarok/projects/opengl/learnopengl/thirdparty/glad/src/glad.c
+CMakeFiles/shader_class.dir/thirdparty/glad/src/glad.c.o: /home/ragnarok/projects/opengl/nbody/thirdparty/glad/src/glad.c
 CMakeFiles/shader_class.dir/thirdparty/glad/src/glad.c.o: CMakeFiles/shader_class.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ragnarok/projects/opengl/learnopengl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/shader_class.dir/thirdparty/glad/src/glad.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/shader_class.dir/thirdparty/glad/src/glad.c.o -MF CMakeFiles/shader_class.dir/thirdparty/glad/src/glad.c.o.d -o CMakeFiles/shader_class.dir/thirdparty/glad/src/glad.c.o -c /home/ragnarok/projects/opengl/learnopengl/thirdparty/glad/src/glad.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ragnarok/projects/opengl/nbody/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/shader_class.dir/thirdparty/glad/src/glad.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/shader_class.dir/thirdparty/glad/src/glad.c.o -MF CMakeFiles/shader_class.dir/thirdparty/glad/src/glad.c.o.d -o CMakeFiles/shader_class.dir/thirdparty/glad/src/glad.c.o -c /home/ragnarok/projects/opengl/nbody/thirdparty/glad/src/glad.c
 
 CMakeFiles/shader_class.dir/thirdparty/glad/src/glad.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/shader_class.dir/thirdparty/glad/src/glad.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ragnarok/projects/opengl/learnopengl/thirdparty/glad/src/glad.c > CMakeFiles/shader_class.dir/thirdparty/glad/src/glad.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ragnarok/projects/opengl/nbody/thirdparty/glad/src/glad.c > CMakeFiles/shader_class.dir/thirdparty/glad/src/glad.c.i
 
 CMakeFiles/shader_class.dir/thirdparty/glad/src/glad.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/shader_class.dir/thirdparty/glad/src/glad.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ragnarok/projects/opengl/learnopengl/thirdparty/glad/src/glad.c -o CMakeFiles/shader_class.dir/thirdparty/glad/src/glad.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ragnarok/projects/opengl/nbody/thirdparty/glad/src/glad.c -o CMakeFiles/shader_class.dir/thirdparty/glad/src/glad.c.s
 
 # Object files for target shader_class
 shader_class_OBJECTS = \
@@ -114,7 +114,7 @@ shader_class: CMakeFiles/shader_class.dir/build.make
 shader_class: CMakeFiles/shader_class.dir/compiler_depend.ts
 shader_class: /usr/lib/libglfw.so.3.4
 shader_class: CMakeFiles/shader_class.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ragnarok/projects/opengl/learnopengl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable shader_class"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ragnarok/projects/opengl/nbody/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable shader_class"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/shader_class.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -126,6 +126,6 @@ CMakeFiles/shader_class.dir/clean:
 .PHONY : CMakeFiles/shader_class.dir/clean
 
 CMakeFiles/shader_class.dir/depend:
-	cd /home/ragnarok/projects/opengl/learnopengl/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ragnarok/projects/opengl/learnopengl /home/ragnarok/projects/opengl/learnopengl /home/ragnarok/projects/opengl/learnopengl/build /home/ragnarok/projects/opengl/learnopengl/build /home/ragnarok/projects/opengl/learnopengl/build/CMakeFiles/shader_class.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/ragnarok/projects/opengl/nbody/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ragnarok/projects/opengl/nbody /home/ragnarok/projects/opengl/nbody /home/ragnarok/projects/opengl/nbody/build /home/ragnarok/projects/opengl/nbody/build /home/ragnarok/projects/opengl/nbody/build/CMakeFiles/shader_class.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/shader_class.dir/depend
 

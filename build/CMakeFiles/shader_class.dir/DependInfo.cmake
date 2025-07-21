@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/ragnarok/projects/opengl/learnopengl/thirdparty/glad/src/glad.c" "CMakeFiles/shader_class.dir/thirdparty/glad/src/glad.c.o" "gcc" "CMakeFiles/shader_class.dir/thirdparty/glad/src/glad.c.o.d"
-  "/home/ragnarok/projects/opengl/learnopengl/src/main.cpp" "CMakeFiles/shader_class.dir/src/main.cpp.o" "gcc" "CMakeFiles/shader_class.dir/src/main.cpp.o.d"
+  "/home/ragnarok/projects/opengl/nbody/thirdparty/glad/src/glad.c" "CMakeFiles/shader_class.dir/thirdparty/glad/src/glad.c.o" "gcc" "CMakeFiles/shader_class.dir/thirdparty/glad/src/glad.c.o.d"
+  "/home/ragnarok/projects/opengl/nbody/src/main.cpp" "CMakeFiles/shader_class.dir/src/main.cpp.o" "gcc" "CMakeFiles/shader_class.dir/src/main.cpp.o.d"
   "" "shader_class" "gcc" "CMakeFiles/shader_class.dir/link.d"
   )
 

@@ -1,3 +1,3 @@
-/home/ragnarok/projects/opengl/learnopengl/build/CMakeFiles/shader_class.dir
-/home/ragnarok/projects/opengl/learnopengl/build/CMakeFiles/edit_cache.dir
-/home/ragnarok/projects/opengl/learnopengl/build/CMakeFiles/rebuild_cache.dir
+/home/ragnarok/projects/opengl/nbody/build/CMakeFiles/shader_class.dir
+/home/ragnarok/projects/opengl/nbody/build/CMakeFiles/edit_cache.dir
+/home/ragnarok/projects/opengl/nbody/build/CMakeFiles/rebuild_cache.dir

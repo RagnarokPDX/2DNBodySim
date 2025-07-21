@@ -1,7 +1,7 @@
 {
 	"InstallScripts" : 
 	[
-		"/home/ragnarok/projects/opengl/learnopengl/build/cmake_install.cmake"
+		"/home/ragnarok/projects/opengl/nbody/build/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

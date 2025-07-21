@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ragnarok/projects/opengl/learnopengl
+CMAKE_SOURCE_DIR = /home/ragnarok/projects/opengl/nbody
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ragnarok/projects/opengl/learnopengl/build
+CMAKE_BINARY_DIR = /home/ragnarok/projects/opengl/nbody/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -85,14 +85,14 @@ clean: CMakeFiles/shader_class.dir/clean
 CMakeFiles/shader_class.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/shader_class.dir/build.make CMakeFiles/shader_class.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/shader_class.dir/build.make CMakeFiles/shader_class.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ragnarok/projects/opengl/learnopengl/build/CMakeFiles --progress-num=1,2,3 "Built target shader_class"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ragnarok/projects/opengl/nbody/build/CMakeFiles --progress-num=1,2,3 "Built target shader_class"
 .PHONY : CMakeFiles/shader_class.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/shader_class.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ragnarok/projects/opengl/learnopengl/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ragnarok/projects/opengl/nbody/build/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/shader_class.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ragnarok/projects/opengl/learnopengl/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ragnarok/projects/opengl/nbody/build/CMakeFiles 0
 .PHONY : CMakeFiles/shader_class.dir/rule
 
 # Convenience name for target.
@@ -102,7 +102,7 @@ shader_class: CMakeFiles/shader_class.dir/rule
 # codegen rule for target.
 CMakeFiles/shader_class.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/shader_class.dir/build.make CMakeFiles/shader_class.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ragnarok/projects/opengl/learnopengl/build/CMakeFiles --progress-num=1,2,3 "Finished codegen for target shader_class"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ragnarok/projects/opengl/nbody/build/CMakeFiles --progress-num=1,2,3 "Finished codegen for target shader_class"
 .PHONY : CMakeFiles/shader_class.dir/codegen
 
 # clean rule for target.

@@ -5,13 +5,13 @@
 # compile CXX with /usr/bin/c++
 C_DEFINES = 
 
-C_INCLUDES = -I/home/ragnarok/projects/opengl/learnopengl/thirdparty/glad/include -I/home/ragnarok/projects/opengl/learnopengl/thirdparty/stb -I/home/ragnarok/projects/opengl/learnopengl/include -I/home/ragnarok/projects/opengl/learnopengl/shader_class -I/home/ragnarok/projects/opengl/learnopengl/external/glfw/include
+C_INCLUDES = -I/home/ragnarok/projects/opengl/nbody/thirdparty/glad/include -I/home/ragnarok/projects/opengl/nbody/thirdparty/stb -I/home/ragnarok/projects/opengl/nbody/include -I/home/ragnarok/projects/opengl/nbody/shader_class -I/home/ragnarok/projects/opengl/nbody/external/glfw/include
 
 C_FLAGS = 
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/ragnarok/projects/opengl/learnopengl/thirdparty/glad/include -I/home/ragnarok/projects/opengl/learnopengl/thirdparty/stb -I/home/ragnarok/projects/opengl/learnopengl/include -I/home/ragnarok/projects/opengl/learnopengl/shader_class -I/home/ragnarok/projects/opengl/learnopengl/external/glfw/include
+CXX_INCLUDES = -I/home/ragnarok/projects/opengl/nbody/thirdparty/glad/include -I/home/ragnarok/projects/opengl/nbody/thirdparty/stb -I/home/ragnarok/projects/opengl/nbody/include -I/home/ragnarok/projects/opengl/nbody/shader_class -I/home/ragnarok/projects/opengl/nbody/external/glfw/include
 
 CXX_FLAGS = 
 
