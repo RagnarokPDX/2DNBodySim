@@ -1,14 +1,14 @@
 [
 {
   "directory": "/home/ragnarok/projects/opengl/nbody/build",
-  "command": "/usr/bin/c++  -I/home/ragnarok/projects/opengl/nbody/thirdparty/glad/include -I/home/ragnarok/projects/opengl/nbody/thirdparty/stb -I/home/ragnarok/projects/opengl/nbody/include -I/home/ragnarok/projects/opengl/nbody/shader_class -I/home/ragnarok/projects/opengl/nbody/external/glfw/include  -o CMakeFiles/shader_class.dir/src/main.cpp.o -c /home/ragnarok/projects/opengl/nbody/src/main.cpp",
+  "command": "/usr/bin/c++  -I/home/ragnarok/projects/opengl/nbody/thirdparty/glad/include -I/home/ragnarok/projects/opengl/nbody/thirdparty/stb -I/home/ragnarok/projects/opengl/nbody/include -I/home/ragnarok/projects/opengl/nbody/2dNBodySim -I/home/ragnarok/projects/opengl/nbody/external/glfw/include  -o CMakeFiles/2dNBodySim.dir/src/main.cpp.o -c /home/ragnarok/projects/opengl/nbody/src/main.cpp",
   "file": "/home/ragnarok/projects/opengl/nbody/src/main.cpp",
-  "output": "CMakeFiles/shader_class.dir/src/main.cpp.o"
+  "output": "CMakeFiles/2dNBodySim.dir/src/main.cpp.o"
 },
 {
   "directory": "/home/ragnarok/projects/opengl/nbody/build",
-  "command": "/usr/bin/cc  -I/home/ragnarok/projects/opengl/nbody/thirdparty/glad/include -I/home/ragnarok/projects/opengl/nbody/thirdparty/stb -I/home/ragnarok/projects/opengl/nbody/include -I/home/ragnarok/projects/opengl/nbody/shader_class -I/home/ragnarok/projects/opengl/nbody/external/glfw/include  -o CMakeFiles/shader_class.dir/thirdparty/glad/src/glad.c.o -c /home/ragnarok/projects/opengl/nbody/thirdparty/glad/src/glad.c",
+  "command": "/usr/bin/cc  -I/home/ragnarok/projects/opengl/nbody/thirdparty/glad/include -I/home/ragnarok/projects/opengl/nbody/thirdparty/stb -I/home/ragnarok/projects/opengl/nbody/include -I/home/ragnarok/projects/opengl/nbody/2dNBodySim -I/home/ragnarok/projects/opengl/nbody/external/glfw/include  -o CMakeFiles/2dNBodySim.dir/thirdparty/glad/src/glad.c.o -c /home/ragnarok/projects/opengl/nbody/thirdparty/glad/src/glad.c",
   "file": "/home/ragnarok/projects/opengl/nbody/thirdparty/glad/src/glad.c",
-  "output": "CMakeFiles/shader_class.dir/thirdparty/glad/src/glad.c.o"
+  "output": "CMakeFiles/2dNBodySim.dir/thirdparty/glad/src/glad.c.o"
 }
 ]

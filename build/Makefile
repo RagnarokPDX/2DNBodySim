@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named shader_class
+# Target rules for targets named 2dNBodySim
 
 # Build rule for target.
-shader_class: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 shader_class
-.PHONY : shader_class
+2dNBodySim: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 2dNBodySim
+.PHONY : 2dNBodySim
 
 # fast build rule for target.
-shader_class/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shader_class.dir/build.make CMakeFiles/shader_class.dir/build
-.PHONY : shader_class/fast
+2dNBodySim/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/2dNBodySim.dir/build.make CMakeFiles/2dNBodySim.dir/build
+.PHONY : 2dNBodySim/fast
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shader_class.dir/build.make CMakeFiles/shader_class.dir/src/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/2dNBodySim.dir/build.make CMakeFiles/2dNBodySim.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -142,7 +142,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shader_class.dir/build.make CMakeFiles/shader_class.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/2dNBodySim.dir/build.make CMakeFiles/2dNBodySim.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -150,7 +150,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shader_class.dir/build.make CMakeFiles/shader_class.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/2dNBodySim.dir/build.make CMakeFiles/2dNBodySim.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 thirdparty/glad/src/glad.o: thirdparty/glad/src/glad.c.o
@@ -158,7 +158,7 @@ thirdparty/glad/src/glad.o: thirdparty/glad/src/glad.c.o
 
 # target to build an object file
 thirdparty/glad/src/glad.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shader_class.dir/build.make CMakeFiles/shader_class.dir/thirdparty/glad/src/glad.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/2dNBodySim.dir/build.make CMakeFiles/2dNBodySim.dir/thirdparty/glad/src/glad.c.o
 .PHONY : thirdparty/glad/src/glad.c.o
 
 thirdparty/glad/src/glad.i: thirdparty/glad/src/glad.c.i
@@ -166,7 +166,7 @@ thirdparty/glad/src/glad.i: thirdparty/glad/src/glad.c.i
 
 # target to preprocess a source file
 thirdparty/glad/src/glad.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shader_class.dir/build.make CMakeFiles/shader_class.dir/thirdparty/glad/src/glad.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/2dNBodySim.dir/build.make CMakeFiles/2dNBodySim.dir/thirdparty/glad/src/glad.c.i
 .PHONY : thirdparty/glad/src/glad.c.i
 
 thirdparty/glad/src/glad.s: thirdparty/glad/src/glad.c.s
@@ -174,7 +174,7 @@ thirdparty/glad/src/glad.s: thirdparty/glad/src/glad.c.s
 
 # target to generate assembly for a file
 thirdparty/glad/src/glad.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shader_class.dir/build.make CMakeFiles/shader_class.dir/thirdparty/glad/src/glad.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/2dNBodySim.dir/build.make CMakeFiles/2dNBodySim.dir/thirdparty/glad/src/glad.c.s
 .PHONY : thirdparty/glad/src/glad.c.s
 
 # Help Target
@@ -185,7 +185,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... shader_class"
+	@echo "... 2dNBodySim"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

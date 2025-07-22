@@ -5,7 +5,6 @@
 #include <glm/gtc/matrix_transform.hpp>
 
 // Constants for Camera, maybe throw into config file later on
-
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
 

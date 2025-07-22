@@ -1,8 +1,6 @@
 cmake_minimum_required(VERSION 3.19.1)
 
-project(shader_class)
-
-
+project(2dNBodySim)
 
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
@@ -23,8 +21,7 @@ add_executable(
 
 target_include_directories(
     ${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
-    ${PROJECT_NAME} PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/external/glfw/include
+    ${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/external/glfw/include
 
     )
 

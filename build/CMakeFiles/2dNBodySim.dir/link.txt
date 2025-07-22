@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/2dNBodySim.dir/link.d CMakeFiles/2dNBodySim.dir/src/main.cpp.o CMakeFiles/2dNBodySim.dir/thirdparty/glad/src/glad.c.o -o 2dNBodySim  /usr/lib/libglfw.so.3.4 -lGL -ldl

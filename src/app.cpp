@@ -1,7 +1,4 @@
 #include "app.h"
-
-#define GLFW_INCLUDE_NONE
-#include <GLFW/glfw3.h>
 #include <glad/glad.h>
 #include <iostream>
 
@@ -13,7 +10,6 @@ void mouse_callback(GLFWwindow *window, double xposIn, double yposIn) {}
 void scroll_callback(GLFWwindow *window, double xoffset, double yoffset) {}
 
 int App::init() {
-
   window = glfwCreateWindow(800, 600, "LearnOpenGL", NULL, NULL);
   if (window == NULL) {
     std::cout << "Failed to create GLFW window" << std::endl;
@@ -34,6 +30,9 @@ int App::init() {
     std::cout << "Failed to initialize GLAD" << std::endl;
     return -1;
   }
-
-  // configure global opengl state
+  return 1;
 }
+
+void App::run() {}
+
+void App::shutdown() {}
