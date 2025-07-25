@@ -72,24 +72,10 @@ include CMakeFiles/2dNBodySim.dir/flags.make
 CMakeFiles/2dNBodySim.dir/codegen:
 .PHONY : CMakeFiles/2dNBodySim.dir/codegen
 
-CMakeFiles/2dNBodySim.dir/src/main.cpp.o: CMakeFiles/2dNBodySim.dir/flags.make
-CMakeFiles/2dNBodySim.dir/src/main.cpp.o: /home/ragnarok/projects/opengl/nbody/src/main.cpp
-CMakeFiles/2dNBodySim.dir/src/main.cpp.o: CMakeFiles/2dNBodySim.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ragnarok/projects/opengl/nbody/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/2dNBodySim.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/2dNBodySim.dir/src/main.cpp.o -MF CMakeFiles/2dNBodySim.dir/src/main.cpp.o.d -o CMakeFiles/2dNBodySim.dir/src/main.cpp.o -c /home/ragnarok/projects/opengl/nbody/src/main.cpp
-
-CMakeFiles/2dNBodySim.dir/src/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/2dNBodySim.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ragnarok/projects/opengl/nbody/src/main.cpp > CMakeFiles/2dNBodySim.dir/src/main.cpp.i
-
-CMakeFiles/2dNBodySim.dir/src/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/2dNBodySim.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ragnarok/projects/opengl/nbody/src/main.cpp -o CMakeFiles/2dNBodySim.dir/src/main.cpp.s
-
 CMakeFiles/2dNBodySim.dir/thirdparty/glad/src/glad.c.o: CMakeFiles/2dNBodySim.dir/flags.make
 CMakeFiles/2dNBodySim.dir/thirdparty/glad/src/glad.c.o: /home/ragnarok/projects/opengl/nbody/thirdparty/glad/src/glad.c
 CMakeFiles/2dNBodySim.dir/thirdparty/glad/src/glad.c.o: CMakeFiles/2dNBodySim.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ragnarok/projects/opengl/nbody/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/2dNBodySim.dir/thirdparty/glad/src/glad.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ragnarok/projects/opengl/nbody/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/2dNBodySim.dir/thirdparty/glad/src/glad.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/2dNBodySim.dir/thirdparty/glad/src/glad.c.o -MF CMakeFiles/2dNBodySim.dir/thirdparty/glad/src/glad.c.o.d -o CMakeFiles/2dNBodySim.dir/thirdparty/glad/src/glad.c.o -c /home/ragnarok/projects/opengl/nbody/thirdparty/glad/src/glad.c
 
 CMakeFiles/2dNBodySim.dir/thirdparty/glad/src/glad.c.i: cmake_force
@@ -100,21 +86,67 @@ CMakeFiles/2dNBodySim.dir/thirdparty/glad/src/glad.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/2dNBodySim.dir/thirdparty/glad/src/glad.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ragnarok/projects/opengl/nbody/thirdparty/glad/src/glad.c -o CMakeFiles/2dNBodySim.dir/thirdparty/glad/src/glad.c.s
 
+CMakeFiles/2dNBodySim.dir/src/app.cpp.o: CMakeFiles/2dNBodySim.dir/flags.make
+CMakeFiles/2dNBodySim.dir/src/app.cpp.o: /home/ragnarok/projects/opengl/nbody/src/app.cpp
+CMakeFiles/2dNBodySim.dir/src/app.cpp.o: CMakeFiles/2dNBodySim.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ragnarok/projects/opengl/nbody/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/2dNBodySim.dir/src/app.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/2dNBodySim.dir/src/app.cpp.o -MF CMakeFiles/2dNBodySim.dir/src/app.cpp.o.d -o CMakeFiles/2dNBodySim.dir/src/app.cpp.o -c /home/ragnarok/projects/opengl/nbody/src/app.cpp
+
+CMakeFiles/2dNBodySim.dir/src/app.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/2dNBodySim.dir/src/app.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ragnarok/projects/opengl/nbody/src/app.cpp > CMakeFiles/2dNBodySim.dir/src/app.cpp.i
+
+CMakeFiles/2dNBodySim.dir/src/app.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/2dNBodySim.dir/src/app.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ragnarok/projects/opengl/nbody/src/app.cpp -o CMakeFiles/2dNBodySim.dir/src/app.cpp.s
+
+CMakeFiles/2dNBodySim.dir/src/main.cpp.o: CMakeFiles/2dNBodySim.dir/flags.make
+CMakeFiles/2dNBodySim.dir/src/main.cpp.o: /home/ragnarok/projects/opengl/nbody/src/main.cpp
+CMakeFiles/2dNBodySim.dir/src/main.cpp.o: CMakeFiles/2dNBodySim.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ragnarok/projects/opengl/nbody/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/2dNBodySim.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/2dNBodySim.dir/src/main.cpp.o -MF CMakeFiles/2dNBodySim.dir/src/main.cpp.o.d -o CMakeFiles/2dNBodySim.dir/src/main.cpp.o -c /home/ragnarok/projects/opengl/nbody/src/main.cpp
+
+CMakeFiles/2dNBodySim.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/2dNBodySim.dir/src/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ragnarok/projects/opengl/nbody/src/main.cpp > CMakeFiles/2dNBodySim.dir/src/main.cpp.i
+
+CMakeFiles/2dNBodySim.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/2dNBodySim.dir/src/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ragnarok/projects/opengl/nbody/src/main.cpp -o CMakeFiles/2dNBodySim.dir/src/main.cpp.s
+
+CMakeFiles/2dNBodySim.dir/src/util.cpp.o: CMakeFiles/2dNBodySim.dir/flags.make
+CMakeFiles/2dNBodySim.dir/src/util.cpp.o: /home/ragnarok/projects/opengl/nbody/src/util.cpp
+CMakeFiles/2dNBodySim.dir/src/util.cpp.o: CMakeFiles/2dNBodySim.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ragnarok/projects/opengl/nbody/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/2dNBodySim.dir/src/util.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/2dNBodySim.dir/src/util.cpp.o -MF CMakeFiles/2dNBodySim.dir/src/util.cpp.o.d -o CMakeFiles/2dNBodySim.dir/src/util.cpp.o -c /home/ragnarok/projects/opengl/nbody/src/util.cpp
+
+CMakeFiles/2dNBodySim.dir/src/util.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/2dNBodySim.dir/src/util.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ragnarok/projects/opengl/nbody/src/util.cpp > CMakeFiles/2dNBodySim.dir/src/util.cpp.i
+
+CMakeFiles/2dNBodySim.dir/src/util.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/2dNBodySim.dir/src/util.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ragnarok/projects/opengl/nbody/src/util.cpp -o CMakeFiles/2dNBodySim.dir/src/util.cpp.s
+
 # Object files for target 2dNBodySim
 2dNBodySim_OBJECTS = \
+"CMakeFiles/2dNBodySim.dir/thirdparty/glad/src/glad.c.o" \
+"CMakeFiles/2dNBodySim.dir/src/app.cpp.o" \
 "CMakeFiles/2dNBodySim.dir/src/main.cpp.o" \
-"CMakeFiles/2dNBodySim.dir/thirdparty/glad/src/glad.c.o"
+"CMakeFiles/2dNBodySim.dir/src/util.cpp.o"
 
 # External object files for target 2dNBodySim
 2dNBodySim_EXTERNAL_OBJECTS =
 
-2dNBodySim: CMakeFiles/2dNBodySim.dir/src/main.cpp.o
 2dNBodySim: CMakeFiles/2dNBodySim.dir/thirdparty/glad/src/glad.c.o
+2dNBodySim: CMakeFiles/2dNBodySim.dir/src/app.cpp.o
+2dNBodySim: CMakeFiles/2dNBodySim.dir/src/main.cpp.o
+2dNBodySim: CMakeFiles/2dNBodySim.dir/src/util.cpp.o
 2dNBodySim: CMakeFiles/2dNBodySim.dir/build.make
 2dNBodySim: CMakeFiles/2dNBodySim.dir/compiler_depend.ts
 2dNBodySim: /usr/lib/libglfw.so.3.4
 2dNBodySim: CMakeFiles/2dNBodySim.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ragnarok/projects/opengl/nbody/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable 2dNBodySim"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ragnarok/projects/opengl/nbody/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable 2dNBodySim"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/2dNBodySim.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

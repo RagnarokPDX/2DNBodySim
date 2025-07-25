@@ -129,6 +129,30 @@ depend:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/2dNBodySim.dir/build.make CMakeFiles/2dNBodySim.dir/build
 .PHONY : 2dNBodySim/fast
 
+src/app.o: src/app.cpp.o
+.PHONY : src/app.o
+
+# target to build an object file
+src/app.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/2dNBodySim.dir/build.make CMakeFiles/2dNBodySim.dir/src/app.cpp.o
+.PHONY : src/app.cpp.o
+
+src/app.i: src/app.cpp.i
+.PHONY : src/app.i
+
+# target to preprocess a source file
+src/app.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/2dNBodySim.dir/build.make CMakeFiles/2dNBodySim.dir/src/app.cpp.i
+.PHONY : src/app.cpp.i
+
+src/app.s: src/app.cpp.s
+.PHONY : src/app.s
+
+# target to generate assembly for a file
+src/app.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/2dNBodySim.dir/build.make CMakeFiles/2dNBodySim.dir/src/app.cpp.s
+.PHONY : src/app.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -152,6 +176,30 @@ src/main.s: src/main.cpp.s
 src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/2dNBodySim.dir/build.make CMakeFiles/2dNBodySim.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
+
+src/util.o: src/util.cpp.o
+.PHONY : src/util.o
+
+# target to build an object file
+src/util.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/2dNBodySim.dir/build.make CMakeFiles/2dNBodySim.dir/src/util.cpp.o
+.PHONY : src/util.cpp.o
+
+src/util.i: src/util.cpp.i
+.PHONY : src/util.i
+
+# target to preprocess a source file
+src/util.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/2dNBodySim.dir/build.make CMakeFiles/2dNBodySim.dir/src/util.cpp.i
+.PHONY : src/util.cpp.i
+
+src/util.s: src/util.cpp.s
+.PHONY : src/util.s
+
+# target to generate assembly for a file
+src/util.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/2dNBodySim.dir/build.make CMakeFiles/2dNBodySim.dir/src/util.cpp.s
+.PHONY : src/util.cpp.s
 
 thirdparty/glad/src/glad.o: thirdparty/glad/src/glad.c.o
 .PHONY : thirdparty/glad/src/glad.o
@@ -186,9 +234,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... 2dNBodySim"
+	@echo "... src/app.o"
+	@echo "... src/app.i"
+	@echo "... src/app.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/util.o"
+	@echo "... src/util.i"
+	@echo "... src/util.s"
 	@echo "... thirdparty/glad/src/glad.o"
 	@echo "... thirdparty/glad/src/glad.i"
 	@echo "... thirdparty/glad/src/glad.s"

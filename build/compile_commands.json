@@ -1,14 +1,26 @@
 [
 {
   "directory": "/home/ragnarok/projects/opengl/nbody/build",
-  "command": "/usr/bin/c++  -I/home/ragnarok/projects/opengl/nbody/thirdparty/glad/include -I/home/ragnarok/projects/opengl/nbody/thirdparty/stb -I/home/ragnarok/projects/opengl/nbody/include -I/home/ragnarok/projects/opengl/nbody/2dNBodySim -I/home/ragnarok/projects/opengl/nbody/external/glfw/include  -o CMakeFiles/2dNBodySim.dir/src/main.cpp.o -c /home/ragnarok/projects/opengl/nbody/src/main.cpp",
+  "command": "/usr/bin/cc  -I/home/ragnarok/projects/opengl/nbody/thirdparty/glad/include -I/home/ragnarok/projects/opengl/nbody/thirdparty/stb -I/home/ragnarok/projects/opengl/nbody/src -I/home/ragnarok/projects/opengl/nbody/2dNBodySim -I/home/ragnarok/projects/opengl/nbody/external/glfw/include  -o CMakeFiles/2dNBodySim.dir/thirdparty/glad/src/glad.c.o -c /home/ragnarok/projects/opengl/nbody/thirdparty/glad/src/glad.c",
+  "file": "/home/ragnarok/projects/opengl/nbody/thirdparty/glad/src/glad.c",
+  "output": "CMakeFiles/2dNBodySim.dir/thirdparty/glad/src/glad.c.o"
+},
+{
+  "directory": "/home/ragnarok/projects/opengl/nbody/build",
+  "command": "/usr/bin/c++  -I/home/ragnarok/projects/opengl/nbody/thirdparty/glad/include -I/home/ragnarok/projects/opengl/nbody/thirdparty/stb -I/home/ragnarok/projects/opengl/nbody/src -I/home/ragnarok/projects/opengl/nbody/2dNBodySim -I/home/ragnarok/projects/opengl/nbody/external/glfw/include  -o CMakeFiles/2dNBodySim.dir/src/app.cpp.o -c /home/ragnarok/projects/opengl/nbody/src/app.cpp",
+  "file": "/home/ragnarok/projects/opengl/nbody/src/app.cpp",
+  "output": "CMakeFiles/2dNBodySim.dir/src/app.cpp.o"
+},
+{
+  "directory": "/home/ragnarok/projects/opengl/nbody/build",
+  "command": "/usr/bin/c++  -I/home/ragnarok/projects/opengl/nbody/thirdparty/glad/include -I/home/ragnarok/projects/opengl/nbody/thirdparty/stb -I/home/ragnarok/projects/opengl/nbody/src -I/home/ragnarok/projects/opengl/nbody/2dNBodySim -I/home/ragnarok/projects/opengl/nbody/external/glfw/include  -o CMakeFiles/2dNBodySim.dir/src/main.cpp.o -c /home/ragnarok/projects/opengl/nbody/src/main.cpp",
   "file": "/home/ragnarok/projects/opengl/nbody/src/main.cpp",
   "output": "CMakeFiles/2dNBodySim.dir/src/main.cpp.o"
 },
 {
   "directory": "/home/ragnarok/projects/opengl/nbody/build",
-  "command": "/usr/bin/cc  -I/home/ragnarok/projects/opengl/nbody/thirdparty/glad/include -I/home/ragnarok/projects/opengl/nbody/thirdparty/stb -I/home/ragnarok/projects/opengl/nbody/include -I/home/ragnarok/projects/opengl/nbody/2dNBodySim -I/home/ragnarok/projects/opengl/nbody/external/glfw/include  -o CMakeFiles/2dNBodySim.dir/thirdparty/glad/src/glad.c.o -c /home/ragnarok/projects/opengl/nbody/thirdparty/glad/src/glad.c",
-  "file": "/home/ragnarok/projects/opengl/nbody/thirdparty/glad/src/glad.c",
-  "output": "CMakeFiles/2dNBodySim.dir/thirdparty/glad/src/glad.c.o"
+  "command": "/usr/bin/c++  -I/home/ragnarok/projects/opengl/nbody/thirdparty/glad/include -I/home/ragnarok/projects/opengl/nbody/thirdparty/stb -I/home/ragnarok/projects/opengl/nbody/src -I/home/ragnarok/projects/opengl/nbody/2dNBodySim -I/home/ragnarok/projects/opengl/nbody/external/glfw/include  -o CMakeFiles/2dNBodySim.dir/src/util.cpp.o -c /home/ragnarok/projects/opengl/nbody/src/util.cpp",
+  "file": "/home/ragnarok/projects/opengl/nbody/src/util.cpp",
+  "output": "CMakeFiles/2dNBodySim.dir/src/util.cpp.o"
 }
 ]

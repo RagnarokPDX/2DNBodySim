@@ -20,7 +20,6 @@ class Camera {
 
 public:
   glm::vec3 position;
-  glm::vec3 front;
   glm::vec3 right;
   glm::vec3 up;
 
@@ -34,17 +33,16 @@ public:
     position = pos;
     up = glm::vec3(1.0f, 0.0f, 0.0f);
     right = glm::vec3(0.0, 0.0, 1.0f);
-    front = glm::vec3(0.0f, 0.0f, -1.0f);
   };
 
   void processKeyboard(Camera_Movment direction, float deltaTime) {
-    float vel = MovementSpeed * deltaTime;
+    float vel = MovementSpeed * direction;
 
     switch (direction) {
-    case UP:
+    case DOWN:
       position += up * vel;
       break;
-    case DOWN:
+    case UP:
       position -= up * vel;
       break;
     case LEFT:
@@ -62,10 +60,6 @@ public:
       Zoom = 1.0f;
     if (Zoom > 45.0f)
       Zoom = 45.0f;
-  }
-
-  glm::mat4 GetViewMatrix() {
-    return glm::translate(glm::mat4(1.0f), glm::vec3(-position));
   }
 };
 

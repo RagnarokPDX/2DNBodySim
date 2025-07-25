@@ -1,1 +1,0 @@
-/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/shader_class.dir/link.d CMakeFiles/shader_class.dir/src/main.cpp.o CMakeFiles/shader_class.dir/thirdparty/glad/src/glad.c.o -o shader_class  /usr/lib/libglfw.so.3.4 -lGL -ldl

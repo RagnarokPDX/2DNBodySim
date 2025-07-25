@@ -13,16 +13,19 @@ find_package(glfw3 REQUIRED)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/glad/include)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/stb)
 
+set(SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src")
+file(GLOB SOURCE_FILES "${SOURCE_DIR}/*.cpp")
+
+
 add_executable(
     ${PROJECT_NAME}
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/glad/src/glad.c
+    ${SOURCE_FILES}
     )
 
 target_include_directories(
-    ${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src
     ${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/external/glfw/include
-
     )
 
 
