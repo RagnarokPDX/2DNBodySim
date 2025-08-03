@@ -39,7 +39,7 @@ void Simulation::update() {
 void Simulation::generateRandomPositions(int npositions) {
 
   std::default_random_engine generator;
-  std::normal_distribution<float> distrib(500.0f, 200.0f);
+  std::normal_distribution<float> distrib(0.0f, 5.0f);
 
   for (int i = 0; i < npositions; i++) {
     float randX = distrib(generator);

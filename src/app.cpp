@@ -2,6 +2,7 @@
 #include "camera.h"
 #include "shader.h"
 #include "simulation.h"
+#include <GLFW/glfw3.h>
 #include <glm/ext/matrix_clip_space.hpp>
 #include <glm/ext/matrix_transform.hpp>
 #include <iostream>
@@ -54,13 +55,13 @@ int App::init() {
 void App::run() {
 
   Simulation sim;
-  sim.generateRandomPositions(3);
+  sim.generateRandomPositions(5);
   std::vector<glm::vec2> positions = sim.getPositions();
 
   circle.centerX = 0;
   circle.centerY = 0;
   circle.radius = 0.5f;
-  circle.resolution = 1024;
+  circle.resolution = 4;
 
   auto pair = genereteCirleVerticiesAndIndicies(circle);
 
@@ -79,13 +80,15 @@ void App::run() {
   glBindBuffer(GL_ARRAY_BUFFER, VBO);
   glBufferData(GL_ARRAY_BUFFER, pair.first.size() * sizeof(float),
                &pair.first[0], GL_STATIC_DRAW);
+  glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, (void *)0);
 
   // instance data
   glEnableVertexAttribArray(1);
-  glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, (void *)0);
   glBindBuffer(GL_ARRAY_BUFFER, positionVBO);
   glBufferData(GL_ARRAY_BUFFER, positions.size() * sizeof(glm::vec2),
                &positions[0], GL_DYNAMIC_DRAW);
+
+  glVertexAttribDivisor(1, 1);
 
   glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, (void *)0);
 
@@ -97,11 +100,17 @@ void App::run() {
 
   glEnableVertexAttribArray(0);
   ourShader.use();
+  int height;
+  int width;
 
+  sim.printPositions();
+  std::cout << positions.size();
   while (!glfwWindowShouldClose(window)) {
     float currentFrame = static_cast<float>(glfwGetTime());
     deltaTime = currentFrame - lastFrame;
     lastFrame = currentFrame;
+
+    glfwGetWindowSize(window, &width, &height);
 
     processInput(window, camera);
 
@@ -114,10 +123,12 @@ void App::run() {
 
     glm::mat4 view = glm::translate(glm::mat4(1.0f), camera.position);
 
-    glm::mat4 projection =
-        glm::ortho(-8.0f * camera.Zoom, 8.0f * camera.Zoom, // left, right
-                   -4.5f * camera.Zoom, 4.5f * camera.Zoom, // bottom, top
-                   -1.0f, 100.0f);
+    glm::mat4 projection = glm::ortho(
+        -static_cast<float>(width) / 2 * camera.Zoom / 100,
+        static_cast<float>(width) / 2 * camera.Zoom / 100, // left, right
+        -static_cast<float>(height) / 2 * camera.Zoom / 100,
+        static_cast<float>(height) / 2 * camera.Zoom / 100, // bottom, top
+        -1.0f, 100.0f);
     glm::mat4 model = glm::mat4(1.0f);
     ourShader.setMat4("projection", projection);
     ourShader.setMat4("model", model);
@@ -125,12 +136,11 @@ void App::run() {
 
     ourShader.use();
     glBindVertexArray(VAO);
-    glDrawElements(GL_TRIANGLES, circle.resolution * 3, GL_UNSIGNED_INT, 0);
+    // glDrawElements(GL_TRIANGLES, circle.resolution * 3, GL_UNSIGNED_INT, 0);
+    glDrawElementsInstanced(GL_TRIANGLES, circle.resolution * 3,
+                            GL_UNSIGNED_INT, 0, positions.size());
 
-    ourShader.setMat4("model",
-                      glm::translate(model, glm::vec3(1.0f, 1.0f, 0.0f)));
-
-    glDrawElements(GL_TRIANGLES, circle.resolution * 3, GL_UNSIGNED_INT, 0);
+    // glDrawElements(GL_TRIANGLES, circle.resolution * 3, GL_UNSIGNED_INT, 0);
     glfwSwapBuffers(window);
     glfwPollEvents();
   }
