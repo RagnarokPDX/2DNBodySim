@@ -1,3 +1,0 @@
-/home/ragnarok/projects/opengl/nbody/build/CMakeFiles/2dNBodySim.dir
-/home/ragnarok/projects/opengl/nbody/build/CMakeFiles/edit_cache.dir
-/home/ragnarok/projects/opengl/nbody/build/CMakeFiles/rebuild_cache.dir

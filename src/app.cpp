@@ -55,7 +55,7 @@ int App::init() {
 void App::run() {
 
   Simulation sim;
-  sim.generateRandomPositions(1000);
+  sim.generateRandomPositions(100);
   std::vector<glm::vec2> positions = sim.getPositions();
 
   circle.centerX = 0;
