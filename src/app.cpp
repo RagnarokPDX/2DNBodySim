@@ -61,13 +61,12 @@ void App::run() {
   circle.centerX = 0;
   circle.centerY = 0;
   circle.radius = 0.5f;
-  circle.resolution = 8;
+  circle.resolution = 4;
 
   auto pair = genereteCirleVerticiesAndIndicies(circle);
 
   glEnable(GL_DEPTH_TEST);
-  Shader ourShader("/home/ragnarok/projects/opengl/nbody/res/vert.glsl",
-                   "/home/ragnarok/projects/opengl/nbody/res/frag.glsl");
+  Shader ourShader("../res/vert.glsl", "../res/frag.glsl");
 
   glGenVertexArrays(1, &VAO);
   glGenBuffers(1, &VBO);
@@ -103,7 +102,6 @@ void App::run() {
   int height;
   int width;
 
-  sim.printPositions();
   std::cout << positions.size();
   camera.Zoom = 10.0f;
   while (!glfwWindowShouldClose(window)) {
@@ -111,14 +109,13 @@ void App::run() {
     deltaTime = currentFrame - lastFrame;
     lastFrame = currentFrame;
 
-    std::cout << deltaTime << "\n";
+    //    std::cout << deltaTime << "\n";
 
     glfwGetWindowSize(window, &width, &height);
 
     processInput(window, camera);
 
     sim.update();
-
     positions = sim.getPositions();
     glBindBuffer(GL_ARRAY_BUFFER, positionVBO);
     glBufferSubData(GL_ARRAY_BUFFER, 0, positions.size() * sizeof(glm::vec2),
@@ -145,7 +142,8 @@ void App::run() {
     glDrawElementsInstanced(GL_TRIANGLES, circle.resolution * 3,
                             GL_UNSIGNED_INT, 0, positions.size());
 
-    // glDrawElements(GL_TRIANGLES, circle.resolution * 3, GL_UNSIGNED_INT, 0);
+    // glDrawElements(GL_TRIANGLES, circle.resolution *
+    // 3, GL_UNSIGNED_INT, 0);
     glfwSwapBuffers(window);
     glfwPollEvents();
   }
