@@ -3,7 +3,6 @@
 
 #include <glm/fwd.hpp>
 #include <glm/vec2.hpp>
-#include <iostream>
 #include <vector>
 // Assume that all circles are same size for now
 // the current approach is array of strucutres
@@ -16,9 +15,7 @@ struct Body {
   float mass;
 
   void update(float dt) {
-    std::cout << acc.x;
     pos += vel * dt;
-    std::cout << pos.x << " " << pos.y << " x-y \n";
     vel += acc * dt;
     acc = glm::vec2(0, 0);
   }

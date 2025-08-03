@@ -55,7 +55,7 @@ int App::init() {
 void App::run() {
 
   Simulation sim;
-  sim.generateRandomPositions(5);
+  sim.generateRandomPositions(100);
   std::vector<glm::vec2> positions = sim.getPositions();
 
   circle.centerX = 0;
@@ -105,6 +105,7 @@ void App::run() {
 
   sim.printPositions();
   std::cout << positions.size();
+
   while (!glfwWindowShouldClose(window)) {
     float currentFrame = static_cast<float>(glfwGetTime());
     deltaTime = currentFrame - lastFrame;
@@ -114,12 +115,14 @@ void App::run() {
 
     processInput(window, camera);
 
+    sim.update();
+
+    positions = sim.getPositions();
+    glBindBuffer(GL_ARRAY_BUFFER, positionVBO);
+    glBufferSubData(GL_ARRAY_BUFFER, 0, positions.size() * sizeof(glm::vec2),
+                    &positions[0]);
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    float aspect =
-        static_cast<float>(SCR_WIDTH) / static_cast<float>(SCR_HEIGHT);
-    float orthoHeight = 1.0f;
-    float orthoWidth = orthoHeight * aspect;
 
     glm::mat4 view = glm::translate(glm::mat4(1.0f), camera.position);
 

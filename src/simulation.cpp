@@ -18,6 +18,7 @@ void Simulation::update() {
       // simplyying  we obtain F = r (m_1 * m_2) / |r|^3
 
       glm::vec2 r = p2 - p1;
+
       float r_mag = glm::length(r);
       // the value we are trying to obtain here is a1,
       // where a1 = r m_2 / r^3
@@ -25,12 +26,18 @@ void Simulation::update() {
       // alternitively r^3 = sqrt(r) * sqrt(r)*sqrt(r)
       // also need to specify min to not get divide by 0
       glm::vec2 a1 = r * (m2 / std::max(r_mag * r_mag * r_mag, 0.000001f));
+
+      // clamp down acceleration to mimic contact
+      if (r_mag < 0.1) {
+        a1 = glm::vec2(0);
+      }
+
       bodies[i].acc += a1;
     }
   }
 
   for (int i = 0; i < bodies.size(); i++) {
-    bodies[i].update(0.01); // dt
+    bodies[i].update(0.001); // dt
   }
 }
 
@@ -39,7 +46,7 @@ void Simulation::update() {
 void Simulation::generateRandomPositions(int npositions) {
 
   std::default_random_engine generator;
-  std::normal_distribution<float> distrib(0.0f, 5.0f);
+  std::normal_distribution<float> distrib(0.0f, 10.0f);
 
   for (int i = 0; i < npositions; i++) {
     float randX = distrib(generator);
