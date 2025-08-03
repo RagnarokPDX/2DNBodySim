@@ -11,11 +11,13 @@ mkdir build
 cd build
 cmake ..
 make
+./2dNBodySim
 ```
 Todo
 - Implemt Barnes-Hut and Fast Multipole
 - Refactor and Cleanup code
 - Parallelize physics solving method
 - Make build system multiplatform
+
 
 
