@@ -18,6 +18,8 @@ Todo
 - Refactor and Cleanup code
 - Parallelize physics solving method
 - Make build system multiplatform
+- Put simulation setup into a config file or as command line arguments
+
 
 
 
