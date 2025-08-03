@@ -55,13 +55,13 @@ int App::init() {
 void App::run() {
 
   Simulation sim;
-  sim.generateRandomPositions(100);
+  sim.generateRandomPositions(1000);
   std::vector<glm::vec2> positions = sim.getPositions();
 
   circle.centerX = 0;
   circle.centerY = 0;
   circle.radius = 0.5f;
-  circle.resolution = 4;
+  circle.resolution = 8;
 
   auto pair = genereteCirleVerticiesAndIndicies(circle);
 
@@ -105,11 +105,13 @@ void App::run() {
 
   sim.printPositions();
   std::cout << positions.size();
-
+  camera.Zoom = 10.0f;
   while (!glfwWindowShouldClose(window)) {
     float currentFrame = static_cast<float>(glfwGetTime());
     deltaTime = currentFrame - lastFrame;
     lastFrame = currentFrame;
+
+    std::cout << deltaTime << "\n";
 
     glfwGetWindowSize(window, &width, &height);
 
