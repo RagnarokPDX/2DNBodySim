@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <glm/fwd.hpp>
 #include <glm/geometric.hpp>
+#include <iostream>
 #include <random>
 
 void Simulation::update() {
@@ -9,12 +10,13 @@ void Simulation::update() {
     glm::vec2 p1 = bodies[i].pos;
     float m1 = bodies[i].mass;
     for (int j = 0; j < bodies.size(); j++) {
-      glm::vec2 p2 = bodies[i].pos;
-      float m2 = bodies[i].mass;
+      glm::vec2 p2 = bodies[j].pos;
+      float m2 = bodies[j].mass;
 
       // assume g is 1 to simply calculations
       // F = G (m_1 * m_2) / |r|^2
       // simplyying  we obtain F = r (m_1 * m_2) / |r|^3
+
       glm::vec2 r = p2 - p1;
       float r_mag = glm::length(r);
       // the value we are trying to obtain here is a1,
@@ -23,18 +25,47 @@ void Simulation::update() {
       // alternitively r^3 = sqrt(r) * sqrt(r)*sqrt(r)
       // also need to specify min to not get divide by 0
       glm::vec2 a1 = r * (m2 / std::max(r_mag * r_mag * r_mag, 0.000001f));
-      bodies[i].acc = a1;
+      bodies[i].acc += a1;
     }
   }
 
   for (int i = 0; i < bodies.size(); i++) {
-    bodies[i].update(0.00001); // dt
+    bodies[i].update(0.01); // dt
   }
 }
 
 // for now asumme all circles are the same size
-void Simulation::generateRandomPositions(int nrolls) {
+// npositions will gen n nubmer npositions so 2 * n floats
+void Simulation::generateRandomPositions(int npositions) {
 
   std::default_random_engine generator;
   std::normal_distribution<float> distrib(500.0f, 200.0f);
+
+  for (int i = 0; i < npositions; i++) {
+    float randX = distrib(generator);
+    float randY = distrib(generator);
+    Body newBody;
+    newBody.acc = glm::vec2(0);
+    newBody.vel = glm::vec2(0);
+    newBody.mass = 1;
+    newBody.pos.x = randX;
+    newBody.pos.y = randY;
+    bodies.push_back(newBody);
+  }
+}
+
+std::vector<glm::vec2> Simulation::getPositions() {
+  std::vector<glm::vec2> positions;
+  for (auto i : bodies) {
+    positions.push_back(i.pos);
+  }
+  return positions;
+}
+
+void Simulation::printPositions() {
+  for (int i = 0; i < bodies.size(); i++) {
+    std::cout << "Body - " << i << "\n";
+    std::cout << "xpos - " << bodies[i].pos.x << "\n";
+    std::cout << "ypos - " << bodies[i].pos.y << "\n";
+  }
 }

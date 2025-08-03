@@ -85,12 +85,12 @@ clean: CMakeFiles/2dNBodySim.dir/clean
 CMakeFiles/2dNBodySim.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/2dNBodySim.dir/build.make CMakeFiles/2dNBodySim.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/2dNBodySim.dir/build.make CMakeFiles/2dNBodySim.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ragnarok/projects/opengl/nbody/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target 2dNBodySim"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ragnarok/projects/opengl/nbody/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target 2dNBodySim"
 .PHONY : CMakeFiles/2dNBodySim.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/2dNBodySim.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ragnarok/projects/opengl/nbody/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ragnarok/projects/opengl/nbody/build/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/2dNBodySim.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ragnarok/projects/opengl/nbody/build/CMakeFiles 0
 .PHONY : CMakeFiles/2dNBodySim.dir/rule
@@ -102,7 +102,7 @@ CMakeFiles/2dNBodySim.dir/rule: cmake_check_build_system
 # codegen rule for target.
 CMakeFiles/2dNBodySim.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/2dNBodySim.dir/build.make CMakeFiles/2dNBodySim.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ragnarok/projects/opengl/nbody/build/CMakeFiles --progress-num=1,2,3,4,5 "Finished codegen for target 2dNBodySim"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ragnarok/projects/opengl/nbody/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Finished codegen for target 2dNBodySim"
 .PHONY : CMakeFiles/2dNBodySim.dir/codegen
 
 # clean rule for target.

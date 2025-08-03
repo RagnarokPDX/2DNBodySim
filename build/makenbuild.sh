@@ -1,2 +1,0 @@
-make
-./2dNBodySim

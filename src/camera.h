@@ -57,11 +57,11 @@ public:
   }
 
   void ProcessMouseScroll(float yoffset) {
-    Zoom -= (float)yoffset;
+    Zoom -= (float)yoffset * 0.5; // apply dampening
     if (Zoom < 1.0f)
       Zoom = 1.0f;
-    if (Zoom > 45.0f)
-      Zoom = 45.0f;
+    if (Zoom > 100.0f)
+      Zoom = 100.0f;
   }
 
   glm::mat4 GetViewMatrix() {
