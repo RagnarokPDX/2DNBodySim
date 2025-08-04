@@ -4,7 +4,7 @@
 
 As of now only tested on Arch Linux
 
-Build Instructions ArcH Linux
+Build Instructions Arch Linux
 ```
 git clone git@github.com:RagnarokPDX/2DNBodySim.git
 ```
@@ -24,6 +24,7 @@ Todo
 - Parallelize physics solving method
 - Make build system multiplatform
 - Put simulation setup into a config file or as command line arguments
+
 
 
 
