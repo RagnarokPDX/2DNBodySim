@@ -7,6 +7,7 @@ As of now only tested on Arch Linux, but should work on Windows 11.
 ## Build Instructions
 
 This project uses CMake as a build system.
+
 Build Instructions Arch Linux
 ```
 git clone git@github.com:RagnarokPDX/2DNBodySim.git
@@ -37,6 +38,7 @@ Esc - exit
 - Parallelize physics solving method
 - Make build system multiplatform
 - Put simulation setup into a config file or as command line arguments
+
 
 
 
