@@ -2,7 +2,7 @@
 
 2D n-body simulation made with OpenGL and C++
 
-As of now only tested on Arch Linux, but should work on Windows 11.
+As of now tested on Arch Linux, but should work on Windows 11 as is.
 
 ## Build Instructions
 
@@ -44,6 +44,7 @@ Esc - exit
 - Parallelize physics solving method
 - Make build system multiplatform
 - Put simulation setup into a config file or as command line arguments
+
 
 
 
