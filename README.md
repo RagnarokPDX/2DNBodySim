@@ -4,21 +4,27 @@
 
 As of now only tested on Arch Linux
 
-Build Instructions
+Build Instructions ArcH Linux
 ```
-sudo pacman -S glm glfw
-mkdir build
-cd build
+git clone git@github.com:RagnarokPDX/2DNBodySim.git
+```
+```
+cd 2DNBodySim
+```
+```
 cmake ..
-make
-./2dNBodySim
 ```
+```
+make
+```
+
 Todo
 - Implemt Barnes-Hut and Fast Multipole
 - Refactor and Cleanup code
 - Parallelize physics solving method
 - Make build system multiplatform
 - Put simulation setup into a config file or as command line arguments
+
 
 
 
