@@ -24,8 +24,10 @@ To run simply run the 2DNBodySim executable,
 
 ## Controls
 
-MouseWheel - Zoom in and out
+MouseWheel - Zoom in and out 
+
 W, A, S, D - Move Around
+
 Esc - exit
 
 ## Todo
@@ -35,6 +37,7 @@ Esc - exit
 - Parallelize physics solving method
 - Make build system multiplatform
 - Put simulation setup into a config file or as command line arguments
+
 
 
 
