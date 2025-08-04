@@ -10,7 +10,7 @@
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
 
-const float SPEED = 2.5f;
+const float SPEED = 25.0f;
 const float ZOOM = 45.0f;
 // orhtograpic camera
 //

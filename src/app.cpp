@@ -96,7 +96,7 @@ void App::run() {
   auto pair = genereteCirleVerticiesAndIndicies(circle);
 
   glEnable(GL_DEPTH_TEST);
-  Shader ourShader(vert_src.c_str(), frag_src.c_str());
+  Shader ourShader(vert_src, frag_src);
 
   glGenVertexArrays(1, &VAO);
   glGenBuffers(1, &VBO);
@@ -153,7 +153,7 @@ void App::run() {
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    glm::mat4 view = glm::translate(glm::mat4(1.0f), camera.position);
+    glm::mat4 view = glm::translate(glm::mat4(1.0f), -camera.position);
 
     glm::mat4 projection = glm::ortho(
         -static_cast<float>(width) / 2 * camera.Zoom / 100,
