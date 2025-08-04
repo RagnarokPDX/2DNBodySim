@@ -13,6 +13,5 @@ uniform mat4 mvp;
 void main()
 {
   // z coord should always be 0
- gl_Position = projection * view * model * vec4(aPos + worldPos, 0.0f, 1.0f);
-
+ gl_Position = projection * view * model * vec4( aPos + worldPos , 0.0f, 1.0f);
 }
