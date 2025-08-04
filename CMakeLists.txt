@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.19.1)
 
-project(2dNBodySim)
+project(2DNBodySim)
+
+
 
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
@@ -8,27 +10,30 @@ set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-find_package(glfw3 REQUIRED)
-
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/glad/include)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/stb)
-
-set(SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src")
-file(GLOB SOURCE_FILES "${SOURCE_DIR}/*.cpp")
-
+file(GLOB_RECURSE SOURCE_FILES
+     "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp"
+     "${CMAKE_CURRENT_SOURCE_DIR}/src/*.h")
 
 add_executable(
     ${PROJECT_NAME}
-    ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/glad/src/glad.c
     ${SOURCE_FILES}
+    ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/glad/src/glad.c
     )
 
 target_include_directories(
-    ${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src
-    ${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/external/glfw/include
+    ${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${PROJECT_NAME} PUBLIC
+
     )
 
 
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/glfw-3.4)
+target_link_libraries(${PROJECT_NAME} glfw)
+
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/glad/include)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR/thirdparty/glm})
+
 target_link_libraries(
-    ${PROJECT_NAME} glfw GL dl
+    ${PROJECT_NAME} glfw
     )
