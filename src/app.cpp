@@ -7,6 +7,36 @@
 #include <glm/ext/matrix_transform.hpp>
 #include <iostream>
 
+// Hack to bunlde in shader code within final executable
+std::string vert_src = R"(
+  #version 330 core 
+
+layout (location = 0) in vec2 aPos;
+layout (location = 1) in vec2 worldPos;
+
+uniform mat4 model;
+uniform mat4 projection;
+uniform mat4 view;
+
+void main()
+{
+ gl_Position = projection * view * model * vec4( aPos + worldPos , 0.0f, 1.0f);
+}
+ 
+)";
+
+std::string frag_src = R"(
+  
+#version 330 core 
+
+out vec4 FragColor;
+
+void main(){
+  FragColor = vec4(1.0f, 1.0f, 1.0f, 1.0f);
+}
+
+)";
+
 Camera camera(glm::vec3(0.0f, 0.0f, -1.0f));
 void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
   glViewport(0, 0, width, height);
@@ -66,7 +96,7 @@ void App::run() {
   auto pair = genereteCirleVerticiesAndIndicies(circle);
 
   glEnable(GL_DEPTH_TEST);
-  Shader ourShader("../res/vert.glsl", "../res/frag.glsl");
+  Shader ourShader(vert_src.c_str(), frag_src.c_str());
 
   glGenVertexArrays(1, &VAO);
   glGenBuffers(1, &VBO);
