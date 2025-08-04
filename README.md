@@ -13,7 +13,10 @@ Build Instructions Arch Linux
 git clone git@github.com:RagnarokPDX/2DNBodySim.git
 ```
 ```
-cd 2DNBodySim
+cd 2DNBodySim/
+```
+```
+mkdir build && cd build
 ```
 ```
 cmake ..
@@ -21,7 +24,10 @@ cmake ..
 ```
 make
 ```
-To run simply run the 2DNBodySim executable, 
+To run, run the 2DNBodySim executable
+```
+./2DNBodySim
+```
 
 ## Controls
 
@@ -38,6 +44,7 @@ Esc - exit
 - Parallelize physics solving method
 - Make build system multiplatform
 - Put simulation setup into a config file or as command line arguments
+
 
 
 
