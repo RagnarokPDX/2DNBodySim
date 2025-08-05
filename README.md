@@ -40,10 +40,11 @@ Esc - exit
 ## Todo
 
 - Implemt Barnes-Hut and Fast Multipole
-- Refactor and Cleanup code
+- Implement collisions
 - Parallelize physics solving method
 - Make build system multiplatform
 - Put simulation setup into a config file or as command line arguments
+
 
 
 
