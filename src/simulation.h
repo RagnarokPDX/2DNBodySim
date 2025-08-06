@@ -21,16 +21,35 @@ struct Body {
   }
 };
 
+struct BodyArray {
+  std::vector<glm::vec2> pos;
+  std::vector<glm::vec2> vel;
+  std::vector<glm::vec2> acc;
+  std::vector<float> mass;
+
+  void update(float dt) {
+    for (int i = 0; i < pos.size(); i++) {
+      pos[i] += vel[i] * dt;
+      vel[i] += acc[i] * dt;
+      acc[i] = glm::vec2(0);
+    }
+  }
+};
+
 class Simulation {
 public:
   std::vector<Body> bodies;
+  BodyArray bodiesArray;
   // brute force approach of solving, cacluate force of all other ojbects
   // then sum and apply accordinglyy
-  void update();
-  void generateRandomPositions(int npositions);
-  std::vector<glm::vec2> getPositions();
+  void updateBodies();
+  void updateBodiesArray();
+  void generateRandomBodies(int npositions);
+  void generateRandomBodiesArray(int npositions);
+  std::vector<glm::vec2> getBodiesPositions();
+  std::vector<glm::vec2> getBodiesArrayPositions();
 
-  void printPositions();
+  void printPositions(std::vector<glm::vec2> &positions);
 
 private:
 };

@@ -1,8 +1,9 @@
 #ifndef APP_H
 #define APP_H
 #include "camera.h"
-
-#include "util.h"
+#include "shader.h"
+#include <glm/fwd.hpp>
+#include <vector>
 #define GLFW_INCLUDE_NONE
 #include <GLFW/glfw3.h>
 
@@ -23,13 +24,13 @@ private:
   unsigned int positionVBO;
   float deltaTime;
   float lastFrame;
-  unsigned int scr_width;
-  unsigned int scr_height;
-  // expand this out to array of shaders for expendability later
+  int scr_width;
+  int scr_height;
 
-  // hack but works for now just have one resoluiton sized circle
-  Circle circle;
   void processInput(GLFWwindow *window, Camera &camera);
+  void setupRun(std::vector<glm::vec2> &positions);
+
+  void render(Shader &shader, std::vector<glm::vec2> &positions);
 };
 
 #endif

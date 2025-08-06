@@ -5,7 +5,7 @@
 #include <iostream>
 #include <random>
 
-void Simulation::update() {
+void Simulation::updateBodies() {
   for (int i = 0; i < bodies.size(); i++) {
     glm::vec2 p1 = bodies[i].pos;
     float m1 = bodies[i].mass;
@@ -27,12 +27,13 @@ void Simulation::update() {
       // also need to specify min to not get divide by 0
       glm::vec2 a1 = r * (m2 / std::max(r_mag * r_mag * r_mag, 0.000001f));
 
-      // clamp down acceleration to mimic contact
+      // clamp down acceleration to prevent explosion when particles ares super
+      // close1
       if (r_mag < 0.3) {
         a1 = glm::vec2(0);
       }
 
-      bodies[i].acc += a1 * 3.0f; // speed up effects
+      bodies[i].acc += a1; // speed up effects
     }
   }
 
@@ -43,7 +44,7 @@ void Simulation::update() {
 
 // for now asumme all circles are the same size
 // npositions will gen n nubmer npositions so 2 * n floats
-void Simulation::generateRandomPositions(int npositions) {
+void Simulation::generateRandomBodies(int npositions) {
 
   std::default_random_engine generator;
   std::normal_distribution<float> distrib(0.0f, 50.0f);
@@ -58,6 +59,7 @@ void Simulation::generateRandomPositions(int npositions) {
     newBody.pos.y = randY;
 
     newBody.vel = glm::vec2(0);
+    /*
     if (randX > 0 && randY > 0) {
       newBody.vel = glm::vec2(randY / 2, -randX / 2) * 1.0f;
     }
@@ -70,6 +72,7 @@ void Simulation::generateRandomPositions(int npositions) {
     if (randX < 0 && randY < 0) {
       newBody.vel = glm::vec2(randY / 2, -randX / 2) * 1.0f;
     }
+    */
     bodies.push_back(newBody);
   }
 
@@ -81,7 +84,7 @@ void Simulation::generateRandomPositions(int npositions) {
   // bodies.push_back(sun);
 }
 
-std::vector<glm::vec2> Simulation::getPositions() {
+std::vector<glm::vec2> Simulation::getBodiesPositions() {
   std::vector<glm::vec2> positions;
   for (auto i : bodies) {
     positions.push_back(i.pos);
@@ -89,10 +92,53 @@ std::vector<glm::vec2> Simulation::getPositions() {
   return positions;
 }
 
-void Simulation::printPositions() {
-  for (int i = 0; i < bodies.size(); i++) {
+void Simulation::printPositions(std::vector<glm::vec2> &positions) {
+  for (int i = 0; i < positions.size(); i++) {
     std::cout << "Body - " << i << "\n";
-    std::cout << "xpos - " << bodies[i].pos.x << "\n";
-    std::cout << "ypos - " << bodies[i].pos.y << "\n";
+    std::cout << "xpos - " << positions[i].x << "\n";
+    std::cout << "ypos - " << positions[i].y << "\n";
   }
+}
+
+void Simulation::updateBodiesArray() {
+  for (int i = 0; i < bodiesArray.pos.size(); i++) {
+    glm::vec2 p1 = bodiesArray.pos[i];
+    float m1 = bodiesArray.mass[i];
+    for (int j = 0; j < bodiesArray.pos.size(); j++) {
+      glm::vec2 p2 = bodiesArray.pos[j];
+      float m2 = bodiesArray.mass[j];
+
+      glm::vec2 r = p2 - p1;
+
+      float r_mag = glm::length(r);
+      glm::vec2 a1 = r * (m2 / std::max(r_mag * r_mag * r_mag, 0.01f));
+
+      if (r_mag < 0.3) {
+        a1 = glm::vec2(0);
+      }
+
+      bodiesArray.acc[i] += a1; // speed up effects
+    }
+  }
+
+  bodiesArray.update(0.001f);
+}
+
+void Simulation::generateRandomBodiesArray(int npositions) {
+
+  std::default_random_engine generator;
+  std::normal_distribution<float> distrib(0.0f, 50.0f);
+
+  for (int i = 0; i < npositions; i++) {
+    float randX = distrib(generator);
+    float randY = distrib(generator);
+    bodiesArray.pos.push_back(glm::vec2(randX, randY));
+    bodiesArray.vel.push_back(glm::vec2(0));
+    bodiesArray.acc.push_back(glm::vec2(0));
+    bodiesArray.mass.push_back(500);
+  }
+}
+
+std::vector<glm::vec2> Simulation::getBodiesArrayPositions() {
+  return bodiesArray.pos;
 }

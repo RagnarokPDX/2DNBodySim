@@ -2,14 +2,18 @@
 #include "camera.h"
 #include "shader.h"
 #include "simulation.h"
+#include "util.h"
 #include <GLFW/glfw3.h>
 #include <glm/ext/matrix_clip_space.hpp>
 #include <glm/ext/matrix_transform.hpp>
 #include <iostream>
 
+#define CIRLE_RES 8
+#define NUM_OF_PARTICLES 1000
+
 // Hack to bunlde in shader code within final executable
 std::string vert_src = R"(
-  #version 330 core 
+#version 330 core 
 
 layout (location = 0) in vec2 aPos;
 layout (location = 1) in vec2 worldPos;
@@ -21,12 +25,10 @@ uniform mat4 view;
 void main()
 {
  gl_Position = projection * view * model * vec4( aPos + worldPos , 0.0f, 1.0f);
-}
- 
+} 
 )";
 
-std::string frag_src = R"(
-  
+std::string frag_src = R"(  
 #version 330 core 
 
 out vec4 FragColor;
@@ -34,7 +36,6 @@ out vec4 FragColor;
 void main(){
   FragColor = vec4(1.0f, 1.0f, 1.0f, 1.0f);
 }
-
 )";
 
 Camera camera(glm::vec3(0.0f, 0.0f, -1.0f));
@@ -53,6 +54,8 @@ App::App() {
   window = NULL;
   deltaTime = 0;
   lastFrame = 0;
+  scr_height = 600;
+  scr_width = 800;
 }
 
 int App::init() {
@@ -78,25 +81,76 @@ int App::init() {
     return -1;
   }
 
-  camera.Zoom = 1.0f;
+  camera.Zoom = 10.0f;
   return 1;
 }
 
 void App::run() {
 
   Simulation sim;
-  sim.generateRandomPositions(100);
-  std::vector<glm::vec2> positions = sim.getPositions();
+  sim.generateRandomBodiesArray(NUM_OF_PARTICLES);
+  // sim.generateRandomBodies(NUM_OF_PARTICLES);
+  std::vector<glm::vec2> positions = sim.getBodiesArrayPositions();
+  // std::vector<glm::vec2> positions = sim.getBodiesPositions();
 
+  setupRun(positions);
+
+  Shader shader(vert_src, frag_src);
+
+  std::cout << positions.size();
+  while (!glfwWindowShouldClose(window)) {
+    float currentFrame = static_cast<float>(glfwGetTime());
+    deltaTime = currentFrame - lastFrame;
+    lastFrame = currentFrame;
+
+    std::cout << deltaTime << "\n";
+
+    glfwGetWindowSize(window, &scr_width, &scr_height);
+
+    processInput(window, camera);
+
+    sim.updateBodiesArray();
+    //  sim.printPositions(positions);
+    // sim.updateBodies();
+    positions = sim.getBodiesArrayPositions();
+    glBindBuffer(GL_ARRAY_BUFFER, positionVBO);
+    glBufferSubData(GL_ARRAY_BUFFER, 0, positions.size() * sizeof(glm::vec2),
+                    &positions[0]);
+    render(shader, positions);
+  }
+}
+
+void App::shutdown() {
+  glDeleteVertexArrays(1, &VAO);
+  glDeleteBuffers(1, &VBO);
+
+  glfwTerminate();
+}
+
+void App::processInput(GLFWwindow *window, Camera &camera) {
+  if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+    glfwSetWindowShouldClose(window, true);
+
+  if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+    camera.processKeyboard(UP, deltaTime);
+  if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+    camera.processKeyboard(DOWN, deltaTime);
+  if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+    camera.processKeyboard(LEFT, deltaTime);
+  if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+    camera.processKeyboard(RIGHT, deltaTime);
+}
+
+void App::setupRun(std::vector<glm::vec2> &positions) {
+  Circle circle;
   circle.centerX = 0;
   circle.centerY = 0;
   circle.radius = 0.5f;
-  circle.resolution = 4;
+  circle.resolution = CIRLE_RES;
 
   auto pair = genereteCirleVerticiesAndIndicies(circle);
 
   glEnable(GL_DEPTH_TEST);
-  Shader ourShader(vert_src, frag_src);
 
   glGenVertexArrays(1, &VAO);
   glGenBuffers(1, &VBO);
@@ -128,74 +182,32 @@ void App::run() {
                GL_STATIC_DRAW);
 
   glEnableVertexAttribArray(0);
-  ourShader.use();
-  int height;
-  int width;
-
-  std::cout << positions.size();
-  camera.Zoom = 10.0f;
-  while (!glfwWindowShouldClose(window)) {
-    float currentFrame = static_cast<float>(glfwGetTime());
-    deltaTime = currentFrame - lastFrame;
-    lastFrame = currentFrame;
-
-    //    std::cout << deltaTime << "\n";
-
-    glfwGetWindowSize(window, &width, &height);
-
-    processInput(window, camera);
-
-    sim.update();
-    positions = sim.getPositions();
-    glBindBuffer(GL_ARRAY_BUFFER, positionVBO);
-    glBufferSubData(GL_ARRAY_BUFFER, 0, positions.size() * sizeof(glm::vec2),
-                    &positions[0]);
-    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-    glm::mat4 view = glm::translate(glm::mat4(1.0f), -camera.position);
-
-    glm::mat4 projection = glm::ortho(
-        -static_cast<float>(width) / 2 * camera.Zoom / 100,
-        static_cast<float>(width) / 2 * camera.Zoom / 100, // left, right
-        -static_cast<float>(height) / 2 * camera.Zoom / 100,
-        static_cast<float>(height) / 2 * camera.Zoom / 100, // bottom, top
-        -1.0f, 100.0f);
-    glm::mat4 model = glm::mat4(1.0f);
-    ourShader.setMat4("projection", projection);
-    ourShader.setMat4("model", model);
-    ourShader.setMat4("view", view);
-
-    ourShader.use();
-    glBindVertexArray(VAO);
-    // glDrawElements(GL_TRIANGLES, circle.resolution * 3, GL_UNSIGNED_INT, 0);
-    glDrawElementsInstanced(GL_TRIANGLES, circle.resolution * 3,
-                            GL_UNSIGNED_INT, 0, positions.size());
-
-    // glDrawElements(GL_TRIANGLES, circle.resolution *
-    // 3, GL_UNSIGNED_INT, 0);
-    glfwSwapBuffers(window);
-    glfwPollEvents();
-  }
 }
 
-void App::shutdown() {
-  glDeleteVertexArrays(1, &VAO);
-  glDeleteBuffers(1, &VBO);
+void App::render(Shader &shader, std::vector<glm::vec2> &positions) {
 
-  glfwTerminate();
-}
+  glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-void App::processInput(GLFWwindow *window, Camera &camera) {
-  if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-    glfwSetWindowShouldClose(window, true);
+  glm::mat4 view = glm::translate(glm::mat4(1.0f), -camera.position);
 
-  if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-    camera.processKeyboard(UP, deltaTime);
-  if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-    camera.processKeyboard(DOWN, deltaTime);
-  if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-    camera.processKeyboard(LEFT, deltaTime);
-  if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-    camera.processKeyboard(RIGHT, deltaTime);
+  glm::mat4 projection = glm::ortho(
+      -static_cast<float>(scr_width) / 2 * camera.Zoom / 100,
+      static_cast<float>(scr_width) / 2 * camera.Zoom / 100, // left, right
+      -static_cast<float>(scr_height) / 2 * camera.Zoom / 100,
+      static_cast<float>(scr_height) / 2 * camera.Zoom / 100, // bottom, top
+      -1.0f, 100.0f);
+  glm::mat4 model = glm::mat4(1.0f);
+  shader.setMat4("projection", projection);
+  shader.setMat4("model", model);
+  shader.setMat4("view", view);
+
+  shader.use();
+
+  glBindVertexArray(VAO);
+  glDrawElementsInstanced(GL_TRIANGLES, CIRLE_RES * 3, GL_UNSIGNED_INT, 0,
+                          positions.size());
+
+  glfwSwapBuffers(window);
+  glfwPollEvents();
 }
