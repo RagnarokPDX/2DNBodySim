@@ -3,6 +3,11 @@
 #include "shader.h"
 #include "simulation.h"
 #include "util.h"
+
+#include "imgui.h"
+#include "imgui_impl_glfw.h"
+#include "imgui_impl_opengl3.h"
+
 #include <GLFW/glfw3.h>
 #include <glm/ext/matrix_clip_space.hpp>
 #include <glm/ext/matrix_transform.hpp>
@@ -62,24 +67,45 @@ int App::init() {
 
   if (!glfwInit())
     return -1;
+  float main_scale =
+      ImGui_ImplGlfw_GetContentScaleForMonitor(glfwGetPrimaryMonitor());
+  window = glfwCreateWindow((int)(1280 * main_scale), (int)(800 * main_scale),
+                            "2DNBodySim", nullptr, nullptr);
 
-  window = glfwCreateWindow(800, 600, "LearnOpenGL", NULL, NULL);
-  if (window == NULL) {
-    std::cout << "Failed to create GLFW window" << std::endl;
-    glfwTerminate();
-    return -1;
-  }
+  if (window == nullptr)
+    if (window == NULL) {
+      std::cout << "Failed to create GLFW window" << std::endl;
+      glfwTerminate();
+      return -1;
+    }
 
   glfwMakeContextCurrent(window);
   glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
   glfwSetCursorPosCallback(window, mouse_callback);
   glfwSetScrollCallback(window, scroll_callback);
-  glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+  glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
 
   if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
     std::cout << "Failed to initialize GLAD" << std::endl;
     return -1;
   }
+
+  // Setup Dear ImGui context
+  IMGUI_CHECKVERSION();
+  ImGui::CreateContext();
+  ImGuiIO &io = ImGui::GetIO();
+  (void)io;
+  io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
+  io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;
+
+  ImGui::StyleColorsDark();
+
+  ImGuiStyle &style = ImGui::GetStyle();
+  style.ScaleAllSizes(main_scale);
+  style.FontScaleDpi = main_scale;
+
+  ImGui_ImplGlfw_InitForOpenGL(window, true);
+  ImGui_ImplOpenGL3_Init();
 
   camera.Zoom = 10.0f;
   return 1;
@@ -99,6 +125,12 @@ void App::run() {
 
   std::cout << positions.size();
   while (!glfwWindowShouldClose(window)) {
+
+    ImGui_ImplOpenGL3_NewFrame();
+    ImGui_ImplGlfw_NewFrame();
+    ImGui::NewFrame();
+    ImGui::ShowDemoWindow(); // Show demo window! :)
+
     float currentFrame = static_cast<float>(glfwGetTime());
     deltaTime = currentFrame - lastFrame;
     lastFrame = currentFrame;
@@ -109,20 +141,32 @@ void App::run() {
 
     processInput(window, camera);
 
-    sim.updateBodiesArray();
-    //  sim.printPositions(positions);
-    // sim.updateBodies();
+    // sim.updateBodiesArray();
+    //   sim.printPositions(positions);
+    //  sim.updateBodies();
     positions = sim.getBodiesArrayPositions();
     glBindBuffer(GL_ARRAY_BUFFER, positionVBO);
     glBufferSubData(GL_ARRAY_BUFFER, 0, positions.size() * sizeof(glm::vec2),
                     &positions[0]);
     render(shader, positions);
+
+    ImGui::Render();
+    ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+    glfwSwapBuffers(window);
+    glfwPollEvents();
   }
 }
 
 void App::shutdown() {
   glDeleteVertexArrays(1, &VAO);
   glDeleteBuffers(1, &VBO);
+  glDeleteBuffers(1, &EBO);
+  glDeleteBuffers(1, &positionVBO);
+
+  ImGui_ImplOpenGL3_Shutdown();
+  ImGui_ImplGlfw_Shutdown();
+  ImGui::DestroyContext();
 
   glfwTerminate();
 }
@@ -207,7 +251,4 @@ void App::render(Shader &shader, std::vector<glm::vec2> &positions) {
   glBindVertexArray(VAO);
   glDrawElementsInstanced(GL_TRIANGLES, CIRLE_RES * 3, GL_UNSIGNED_INT, 0,
                           positions.size());
-
-  glfwSwapBuffers(window);
-  glfwPollEvents();
 }
