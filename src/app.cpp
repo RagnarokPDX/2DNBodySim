@@ -14,7 +14,7 @@
 #include <iostream>
 
 #define CIRLE_RES 8
-#define NUM_OF_PARTICLES 1000
+#define NUM_OF_PARTICLES 10
 
 // Hack to bunlde in shader code within final executable
 std::string vert_src = R"(
@@ -125,7 +125,6 @@ void App::run() {
 
   std::cout << positions.size();
   while (!glfwWindowShouldClose(window)) {
-
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
@@ -135,13 +134,13 @@ void App::run() {
     deltaTime = currentFrame - lastFrame;
     lastFrame = currentFrame;
 
-    std::cout << deltaTime << "\n";
+    std::cout << deltaTime * 1000 << "ms" << "\n";
 
     glfwGetWindowSize(window, &scr_width, &scr_height);
 
     processInput(window, camera);
 
-    // sim.updateBodiesArray();
+    sim.updateBodiesArray();
     //   sim.printPositions(positions);
     //  sim.updateBodies();
     positions = sim.getBodiesArrayPositions();

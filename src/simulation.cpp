@@ -42,8 +42,6 @@ void Simulation::updateBodies() {
   }
 }
 
-// for now asumme all circles are the same size
-// npositions will gen n nubmer npositions so 2 * n floats
 void Simulation::generateRandomBodies(int npositions) {
 
   std::default_random_engine generator;
@@ -117,7 +115,7 @@ void Simulation::updateBodiesArray() {
         a1 = glm::vec2(0);
       }
 
-      bodiesArray.acc[i] += a1; // speed up effects
+      bodiesArray.acc[i] += a1;
     }
   }
 
