@@ -14,7 +14,7 @@
 #include <iostream>
 
 #define CIRLE_RES 8
-#define NUM_OF_PARTICLES 10
+#define NUM_OF_PARTICLES 1000
 
 // Hack to bunlde in shader code within final executable
 std::string vert_src = R"(
@@ -43,14 +43,7 @@ void main(){
 }
 )";
 
-Camera camera(glm::vec3(0.0f, 0.0f, -1.0f));
-void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
-  glViewport(0, 0, width, height);
-}
-void mouse_callback(GLFWwindow *window, double xposIn, double yposIn) {}
-void scroll_callback(GLFWwindow *window, double xoffset, double yoffset) {
-  camera.ProcessMouseScroll(static_cast<float>(yoffset));
-}
+Camera App::camera = Camera(glm::vec3(0.0f, 0.0f, 1.0f));
 
 App::App() {
   EBO = 0;
@@ -120,7 +113,8 @@ void App::run() {
   // std::vector<glm::vec2> positions = sim.getBodiesPositions();
 
   setupRun(positions);
-
+  int test = 0;
+  bool gen = false;
   Shader shader(vert_src, frag_src);
 
   std::cout << positions.size();
@@ -128,8 +122,15 @@ void App::run() {
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
-    ImGui::ShowDemoWindow(); // Show demo window! :)
+    // ImGui::ShowDemoWindow(); // Show demo window! :)
 
+    ImGui::Begin("2DNBodySim");
+    ImGui::Text("Text");
+    ImGui::SliderInt("NUM_OF_PARTICLES", &test, 0, 10000);
+    if (ImGui::Button("Button"))
+      gen = true;
+
+    ImGui::End();
     float currentFrame = static_cast<float>(glfwGetTime());
     deltaTime = currentFrame - lastFrame;
     lastFrame = currentFrame;
@@ -250,4 +251,14 @@ void App::render(Shader &shader, std::vector<glm::vec2> &positions) {
   glBindVertexArray(VAO);
   glDrawElementsInstanced(GL_TRIANGLES, CIRLE_RES * 3, GL_UNSIGNED_INT, 0,
                           positions.size());
+}
+
+void App::framebuffer_size_callback(GLFWwindow *window, int width, int height) {
+  glViewport(0, 0, width, height);
+}
+
+void App::mouse_callback(GLFWwindow *window, double xposIn, double yposIn) {}
+
+void App::scroll_callback(GLFWwindow *window, double xoffset, double yoffset) {
+  camera.ProcessMouseScroll(static_cast<float>(yoffset));
 }

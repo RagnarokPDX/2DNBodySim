@@ -18,6 +18,8 @@ public:
 
 private:
   GLFWwindow *window;
+  static Camera camera;
+
   unsigned int VBO;
   unsigned int VAO;
   unsigned int EBO;
@@ -31,6 +33,11 @@ private:
   void setupRun(std::vector<glm::vec2> &positions);
 
   void render(Shader &shader, std::vector<glm::vec2> &positions);
-};
 
+  static void framebuffer_size_callback(GLFWwindow *window, int width,
+                                        int height);
+  static void mouse_callback(GLFWwindow *window, double xposIn, double yposIn);
+  static void scroll_callback(GLFWwindow *window, double xoffset,
+                              double yoffset);
+};
 #endif

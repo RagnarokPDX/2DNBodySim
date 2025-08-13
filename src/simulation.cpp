@@ -111,8 +111,8 @@ void Simulation::updateBodiesArray() {
       float r_mag = glm::length(r);
       glm::vec2 a1 = r * (m2 / std::max(r_mag * r_mag * r_mag, 0.01f));
 
-      if (r_mag < 0.3) {
-        a1 = glm::vec2(0);
+      if (r_mag < 0.5) {
+        a1 = -a1;
       }
 
       bodiesArray.acc[i] += a1;
